@@ -26,7 +26,7 @@ These scripts will combine phonon frequencies and eigenvectors with the BEC deri
 
 # Detailed Description of Each Script
 
-- rotate.py (POSCAR Rotation and Transformation Script)
+## rotate.py (POSCAR Rotation and Transformation Script)
 
 This script reads a VASP POSCAR file, applies specific rotational transformations to the atomic positions and lattice vectors, and outputs modified POSCAR files for three directions of applied electric fields: along the x, y, and z axes.
 
