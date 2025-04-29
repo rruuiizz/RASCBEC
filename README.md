@@ -6,8 +6,8 @@ RAman Spectroscopy Calculation via Born Effective Charge
 
 This method calculates Raman activities based on Born Effective Charge (BEC) data, following phonon calculations. Two separate scripts are provided depending on how the phonon modes were obtained:
 
-- RASCBEC_vasp.py — for phonon data generated directly by VASP
-- RASCBEC_phonopy.py — for phonon data generated using phonopy
+- RASCBEC_vasp.py: for phonon data generated directly by VASP
+- RASCBEC_phonopy.py: for phonon data generated using phonopy
 
 # Workflow Steps
 
@@ -39,16 +39,16 @@ This script reads a VASP POSCAR file, applies specific rotational transformation
 - Input
 
 POSCAR file: A VASP-formatted file named POSCAR which contains:
--- Lattice vector information.
--- Atom types and their quantities.
--- Atomic positions.
+(1) Lattice vector information.
+(2) Atom types and their quantities.
+(3) Atomic positions.
 
 - Output
 
 Three VASP POSCAR-format files:
--- ex.POSCAR.vasp: Adjusted for electric field along the x-axis.
--- ey.POSCAR.vasp: Adjusted for electric field along the y-axis.
--- ez.POSCAR.vasp: Adjusted for electric field along the z-axis.
+(1) ex.POSCAR.vasp: Adjusted for electric field along the x-axis.
+(2) ey.POSCAR.vasp: Adjusted for electric field along the y-axis.
+(3) ez.POSCAR.vasp: Adjusted for electric field along the z-axis.
 Each file includes the rotated lattice vectors and atomic positions.
 
 ## RASCBEC_vasp.py (Calculation of Raman Activities from VASP Output Files)
@@ -58,11 +58,11 @@ to calculate Raman activities for each phonon mode using RASCBEC method.
 
 - Input
 
-A POSCAR file (structure information).
-Eight OUTCAR files (OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz) containing Born Effective Charge data.
-Two additional phonon property files:
-    freqs_vasp.dat: Phonon frequencies stored as a 3N×1 array, where N is the number of atoms.
-    eigvecs_vasp.dat: Phonon eigenvectors stored as a 3N×3N array.
+(1) A POSCAR file (structure information).
+(2) Eight OUTCAR files (OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz) containing Born Effective Charge data.
+(3) Two additional phonon property files:
+    - freqs_vasp.dat: Phonon frequencies stored as a 3N×1 array, where N is the number of atoms.
+    - eigvecs_vasp.dat: Phonon eigenvectors stored as a 3N×3N array.
 
 - Output:
 
@@ -70,6 +70,7 @@ raman_vasp.dat:
 A file containing the calculated Raman activities for each phonon mode.
 
 ## RASCBEC_vasp.py
+
 Similar to RASCBEC_phonopy but requiring freqs_phonopy.dat and eigvecs_phonopy.dat
 
 
@@ -79,19 +80,17 @@ In this example, we demonstrate the full Raman activity calculation workflow usi
 
 All necessary input and output files are provided in the example folder:
 
-Included Files
+## Input Files:
+- POSCAR — structure of rutile GeO2
+- OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz — BEC calculations for 8 rotated structures
+- freqs_vasp.dat — phonon frequencies in a 18×1 array format (N = 6) got from VASP
+- eigvecs_vasp.dat — phonon eigenvectors in a 18×18 array got from VASP
+- freqs_phonopy.dat — phonon frequencies in a 18×1 array format (N = 6) got from phonopy
+- eigvecs_phonopy.dat — phonon eigenvectors in a 18×18 array got from phonopy
 
-- Input Files:
-POSCAR — structure of rutile GeO2
-OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz — BEC calculations for 8 rotated structures
-freqs_vasp.dat — phonon frequencies in a 18×1 array format (N = 6) got from VASP
-eigvecs_vasp.dat — phonon eigenvectors in a 18×18 array got from VASP
-freqs_phonopy.dat — phonon frequencies in a 18×1 array format (N = 6) got from phonopy
-eigvecs_phonopy.dat — phonon eigenvectors in a 18×18 array got from phonopy
-
-- Output File:
-raman_vasp.dat — computed Raman activities for each phonon mode for phonon data generated directly by VASP
-raman_phonopy.dat — computed Raman activities for each phonon mode for phonon data generated using phonopy
+## Output File:
+- raman_vasp.dat — computed Raman activities for each phonon mode for phonon data generated directly by VASP
+- raman_phonopy.dat — computed Raman activities for each phonon mode for phonon data generated using phonopy
 
 This example can be used as a reference for setting up and validating your own Raman activity calculations.
 
