@@ -95,6 +95,6 @@ All necessary input and output files are provided in the example folder:
 This example can be used as a reference for setting up and validating your own Raman activity calculations.
 
 
-# Citation: 
+# Please cite the following paper: 
 Zhang, Rui, et al. "RASCBEC: Raman spectroscopy calculation via born effective charge." Computer Physics Communications 307 (2025): 109425
 
