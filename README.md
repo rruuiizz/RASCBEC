@@ -45,38 +45,25 @@ ey.POSCAR.vasp: Adjusted for electric field along the y-axis.
 ez.POSCAR.vasp: Adjusted for electric field along the z-axis.
 Each file includes the rotated lattice vectors and atomic positions.
 
-- RASCBEC_vasp.py (Calculation of Raman Activities from VASP Output Files)
+## RASCBEC_vasp.py (Calculation of Raman Activities from VASP Output Files)
  
 This script reads input files generated from VASP simulations 
 to calculate Raman activities for each phonon mode using RASCBEC method.
 
-It requires:
+- Input
 
-- A POSCAR file (structure information).
-- Eight OUTCAR files (OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz) containing Born Effective Charge data.
-- Two additional phonon property files:
-    - freqs_vasp.dat: Phonon frequencies stored as a 3N×1 array, where N is the number of atoms.
-    - eigvecs_vasp.dat: Phonon eigenvectors stored as a 3N×3N array.
+A POSCAR file (structure information).
+Eight OUTCAR files (OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz) containing Born Effective Charge data.
+Two additional phonon property files:
+    freqs_vasp.dat: Phonon frequencies stored as a 3N×1 array, where N is the number of atoms.
+    eigvecs_vasp.dat: Phonon eigenvectors stored as a 3N×3N array.
 
-Dependencies:
-- numpy
+- Output:
 
-Usage:
-
-Prepare the following files in the same directory:
-- POSCAR
-- OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz
-- freqs_vasp.dat
-- eigvecs_vasp.dat
-Run the script using Python 3 and NumPy installed:
-python RASCBEC_vasp.py
-
-Output:
-
-- - raman_vasp.dat:
+raman_vasp.dat:
 A file containing the calculated Raman activities for each phonon mode.
 
-- RASCBEC_vasp.py
+## RASCBEC_vasp.py
 Similar to RASCBEC_phonopy but requiring freqs_phonopy.dat and eigvecs_phonopy.dat
 
 
@@ -88,7 +75,7 @@ All necessary input and output files are provided in the example folder:
 
 Included Files
 
-Input Files:
+- Input Files:
 POSCAR — structure of rutile GeO2
 OUTCAR1, OUTCARm1, OUTCARx, OUTCARmx, OUTCARy, OUTCARmy, OUTCARz, OUTCARmz — BEC calculations for 8 rotated structures
 freqs_vasp.dat — phonon frequencies in a 18×1 array format (N = 6) got from VASP
@@ -96,7 +83,7 @@ eigvecs_vasp.dat — phonon eigenvectors in a 18×18 array got from VASP
 freqs_phonopy.dat — phonon frequencies in a 18×1 array format (N = 6) got from phonopy
 eigvecs_phonopy.dat — phonon eigenvectors in a 18×18 array got from phonopy
 
-Output File:
+- Output File:
 raman_vasp.dat — computed Raman activities for each phonon mode for phonon data generated directly by VASP
 raman_phonopy.dat — computed Raman activities for each phonon mode for phonon data generated using phonopy
 
