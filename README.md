@@ -69,9 +69,9 @@ to calculate Raman activities for each phonon mode using RASCBEC method.
 raman_vasp.dat:
 A file containing the calculated Raman activities for each phonon mode.
 
-## RASCBEC_vasp.py
+## RASCBEC_phonopy.py
 
-Similar to RASCBEC_phonopy but requiring freqs_phonopy.dat and eigvecs_phonopy.dat
+Similar to RASCBEC_vasp but requiring freqs_phonopy.dat and eigvecs_phonopy.dat
 
 
 # Example Case: Rutile GeO2
