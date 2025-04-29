@@ -12,16 +12,22 @@ This method calculates Raman activities based on Born Effective Charge (BEC) dat
 # Workflow Steps
 
 - Rotation of Structures
+
 Use the script rotate.py to generate rotated POSCAR files along ±x, ±y, and ±z directions.
+
 This prepares the necessary configurations for BEC calculations.
 
 - Born Effective Charge (BEC) Calculations
+
 Perform 8 separate VASP calculations using the rotated structures.
+
 Extract the BEC tensors from each OUTCAR file.
 
 - Raman Activity Computation
 Run RASCBEC_vasp.py if phonons were computed via VASP.
+
 Run RASCBEC_phonopy.py if phonons were computed via phonopy.
+
 These scripts will combine phonon frequencies and eigenvectors with the BEC derivatives to compute Raman activities.
 
 # Detailed Description of Each Script
@@ -33,16 +39,16 @@ This script reads a VASP POSCAR file, applies specific rotational transformation
 - Input
 
 POSCAR file: A VASP-formatted file named POSCAR which contains:
-Lattice vector information.
-Atom types and their quantities.
-Atomic positions.
+-- Lattice vector information.
+-- Atom types and their quantities.
+-- Atomic positions.
 
 - Output
 
 Three VASP POSCAR-format files:
-ex.POSCAR.vasp: Adjusted for electric field along the x-axis.
-ey.POSCAR.vasp: Adjusted for electric field along the y-axis.
-ez.POSCAR.vasp: Adjusted for electric field along the z-axis.
+-- ex.POSCAR.vasp: Adjusted for electric field along the x-axis.
+-- ey.POSCAR.vasp: Adjusted for electric field along the y-axis.
+-- ez.POSCAR.vasp: Adjusted for electric field along the z-axis.
 Each file includes the rotated lattice vectors and atomic positions.
 
 ## RASCBEC_vasp.py (Calculation of Raman Activities from VASP Output Files)
