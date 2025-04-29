@@ -88,7 +88,7 @@ All necessary input and output files are provided in the example folder:
 - freqs_phonopy.dat — phonon frequencies in a 18×1 array format (N = 6) got from phonopy
 - eigvecs_phonopy.dat — phonon eigenvectors in a 18×18 array got from phonopy
 
-## Output File:
+## Output Files:
 - raman_vasp.dat — computed Raman activities for each phonon mode for phonon data generated directly by VASP
 - raman_phonopy.dat — computed Raman activities for each phonon mode for phonon data generated using phonopy
 
